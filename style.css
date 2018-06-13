@@ -1,0 +1,61 @@
+.frame{
+    width:1200px;margin:0px auto;/*主板置中*/
+    text-align: center;/*文字置中*/
+}
+.box{
+    width:260px;margin:10px;/*切板 & 加間距*/
+    display:inline-block;vertical-align:top;
+    background-color:#ffcccc;
+}
+.title{
+    font-size: 36px;font-weight: bold;
+    text-align: center;
+}
+.menu-desktop{display: block;}
+.menu-moblie{display: none;}
+/*
+利用
+display:block
+display:none
+絕對的處理版面伸縮問題
+版面"漢堡"&"選單"的顯示與否
+*/
+
+/*CSS 3 Media Query   (RWD 最重要工具)*/
+/*500px ~ 1200px */
+@media (max-width:1200px){
+/*
+螢幕尺寸小於1200px的時候,套用這個區塊的設定
+平板用
+*/    
+.frame{
+    width:100%;/*保持與視窗大小的比例  ??*/
+}
+.box{
+    width:45%;
+}
+.menu-desktop{display: none;}
+.menu-moblie{display: block;}
+}
+
+/* 0 ~ 500px*/
+@media (max-width:500px){
+/*螢幕尺寸小於500px的時候,套用這個區塊的設定*/    
+.frame{
+    width:100%;
+}
+.box{
+    width: 90%;
+}
+.title{
+    font-size: 20px;
+}
+.menu-desktop{display: none;}
+.menu-moblie{display: block;}
+/*
+建議用相同比例尺開法  避免%轉換px問題
+
+螢幕尺寸小於500px 特用這一區的code(新蓋舊)
+手機最大500px
+*/
+}
