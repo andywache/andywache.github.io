@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>String</title>
+        <script>
+        function check(){
+
+            /* 字串的處理
+            let text = document.getElementById("input").value;
+            if(text.toLowerCase().indexOf("fuck") > -1){
+                alert("不要講髒話");
+            }
+            
+            console.log("字串的長度:",text.length)
+            console.log("取得第二個字:",text.charAt(1));//陣列的位數[012345]
+            console.log("轉成大寫:",text.toUpperCase());
+            console.log("取得子字串:",text.substring(1,4));
+            console.log("搜尋是否包含:",text.indexOf("abc"));
+            console.log("搜尋是否包含:",text.indexOf("aaa"));
+            */
+
+
+            /*select 下拉式選單的運用
+            let gender = document.getElementById("gender");
+            if(gender.selectedIndex ==0){
+             alert("請輸入性別");
+            }else{
+            let option = gender.options[gender.selectedIndex];
+             alert(option.innerHTML);
+            }
+            */
+
+            /*radio 的運用*/
+            let ages = document.getElementsByName("age");//注意是Elements  複數(取得連結物件)
+            let age = "請輸入年齡";
+            // for(let i=0;i< ages.length;i++){
+            //     console.log(ages[i].checked);
+            // }
+
+            for(let i=0;i< ages.length;i++){
+                if(ages[i].checked){//如果項目有被選取(checked==true)
+                    age=ages[i].value;
+                    break;
+                }
+            }
+            alert(age);
+
+        }
+
+        /*
+             //陣列---JavaScript陣列不同於其他程式語言的陣列(傳統的陣列)
+            //JavaScript陣列 較接近於物件 ---> 因此沒有硬性規定陣列大小的問題
+            let a = new Array(3);
+            a[0] = 60;
+            a[1] = 75;
+            a[2] = 80;
+            a[3] = 44;
+
+            let sum;
+            for(let i = 0; i < a.length;i++){
+                //console.log(a[i]);//dynamic ind   動態索引  //WEBGL  shader(只能在顯卡跑)不適用"動態索引"方法
+                sum += parseInt(a[i]);
+            }
+
+            alert(sum);
+            */
+
+
+
+            
+            
+
+            
+        </script>
+    </head>
+    <body>
+        <input type="text" id="input">
+
+        <!--select 下拉式選單-->
+
+        <select id="gender">
+            <option>性別</option>
+            <option>男</option>
+            <option>女</option>
+        </select>
+
+        <br>
+
+        <!--radui Button-->
+        年齡
+        10-20<input type="radio" name="age" value="10">
+        20-30<input type="radio" name="age" value="20">
+        30-40<input type="radio" name="age" value="30">
+        <!--用name連結(達成三選一的功能)-->
+
+        <button onclick="check();">Click</button>
+        
+    </body>
+</html>
