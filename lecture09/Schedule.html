@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Schedule</title>
+
+        <script>
+        /* setTimeout
+        let timer;
+
+        function init(){//HTML DOM 載入後觸發
+        timer = document.getElementById("timer");
+        //setTimeout --> 建立(註冊)一個事件晚點執行[function執行完才開始做]
+        window.setTimeout(countdown,1000);//window.setTimeout(要做的工作,時間)
+        }
+
+        function countdown(){
+            if(timer.innerHTML > 0){//繼續倒數
+            timer.innerHTML = timer.innerHTML -1;
+            window.setTimeout(countdown,1000);
+            }else{//倒數結束,轉向
+                window.location="http://www.google.com";
+            }
+        }
+        */
+
+
+        /*setInterval*/
+        let timer;
+        let intervalId;
+
+        function init(){//HTML DOM 載入後觸發
+        timer = document.getElementById("timer");
+
+        //window.setTimeout(要做的工作,時間)
+        intervalId =  window.setInterval(countdown,1000);//取得interval排程編號
+        }
+
+        function countdown(){
+            if(timer.innerHTML > 0){//繼續倒數
+            timer.innerHTML = timer.innerHTML -1;
+            }else{//倒數結束,做事
+                
+
+                //清除排程
+                window.clearInterval(intervalId);//window.clearInterval(排程編號);
+
+                alert("YA");
+                
+            }
+        }
+
+
+
+
+
+
+
+
+        window.addEventListener("load",init)//HTML DOM 載入後觸發   //同 -> <body onload="init()">//HTML DOM 載入後觸發
+       
+        </script>
+        
+    </head>
+    <body>
+        <span id="timer">3</span>
+    </body>
+</html>

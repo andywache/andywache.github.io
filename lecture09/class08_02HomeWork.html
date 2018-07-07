@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <script>
+        
+        </script>
+    </head>
+    <body onload="init()">
+
+
+        
+    </body>
+
+    <script>
+    
+    let box;
+    let differX,differY;
+
+    function init(){
+        box = document.getElementById("box");
+        box.addEventListener("mousedown",pickup)
+        box.addEventListener("mouseup",putdown)
+    }
+
+    function pickup(e){
+        document.addEventListener("mousemove",move);
+        //算出滑鼠和方塊左上角的座標差,並存放在全域變數中
+        differX = e.clientX - box.offsetLeft;
+        differY = e.clientY - box.offsetTop;
+    }
+    function move(e){
+        // box.style.left=(e.clientX-20)+"px";
+        // box.style.Right=(e.clientY-20)+"px";
+        box.style.left=(e.clientX-differX)+"px";
+        box.style.Right=(e.clientY-differY)+"px";
+    }
+    function putout(){
+        document.removeEventListener("mousemove",move)
+    }
+    
+    
+    
+    
+    </script>
+</html>
