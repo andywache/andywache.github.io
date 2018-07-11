@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>class10_City Population</title>
+    <script>
+        /*
+        function getData(){//AJAX / XHR[get]
+            //準備網址
+            let cityName = document.getElementById("name").value;
+            let args = "name=" + cityName; 
+            let src = "http://localhost:8080/city.php?" + args;
+            //http://localhost:8080/city.php?name=taipei
+            
+            //AJAX ? XHR : 使用XMLHttpRequest 物件和伺服器互動
+            let req = new XMLHttpRequest();
+            req.open("get",src);//req.open(連線方法get/post,連線網址); //設定連線基本資訊
+            req.addEventListener("load",function () {
+                //伺服器回應後,會觸發load事件  , 執行後續的工作
+                let result = document.getElementById("result");
+                result.innerHTML = req.responseText;
+            //alert(req.responseText);
+            })
+            req.send();//送出連線
+            //alert(req.responseText);//一送出連線,還沒收到回覆就反饋訊息  //非同步 / 異步 / Asynchnonus / 多執行緒
+
+            
+        }
+        */
+        function getData(){//AJAX / XHR[post]
+            //準備網址
+            let cityName = document.getElementById("name").value;
+            let args = "name=" + cityName; 
+            //let src = "http://localhost:8080/city.php?" + args;
+            let src = "http://localhost:8080/city.php";
+            
+            //AJAX ? XHR : 使用XMLHttpRequest 物件和伺服器互動
+            let req = new XMLHttpRequest();
+            req.open("post",src);//req.open(連線方法get/post,連線網址); //設定連線基本資訊
+            req.setRequestHeader("Content-type","application/x-www-form-urlencoded");//告知送出參數的格式
+            req.addEventListener("load",function () {
+                //伺服器回應後,會觸發load事件  , 執行後續的工作
+                let result = document.getElementById("result");
+                result.innerHTML = req.responseText;
+            //alert(req.responseText);
+            })
+            req.send(args);//送出連線,可選擇帶入要送給伺服器的內容[AJAX POST 參數傳入位置](可以放任何型態的東西<>)
+            //alert(req.responseText);//一送出連線,還沒收到回覆就反饋訊息  //非同步 / 異步 / Asynchnonus / 多執行緒
+
+            
+        }
+
+    
+    </script>
+</head>
+<body>
+    <h3>City Population</h3>
+
+    <!-- AJAX -->
+    <div>
+        Name <input oninput="getData();" type="text" id="name">
+        <!-- Name <input type="text" id="name"> -->
+        <button onclick="getData();">Get</button>
+    </div>
+
+    <div id="result"></div>
+
+
+
+
+
+<!-- Form (表單)[會跳頁] 邏輯 給name -->
+    <!-- 
+        form表單的特性 action:
+            透過action的設定
+                1.submit 會送出選項的網址
+                2.input type="text" name="name" 其中"name"會自動帶入參數
+     -->
+<!-- 
+    <form action="http://localhost:8080/city.php">
+        Name <input type="text" name="name">
+        Password <input type="password" name="password">
+        <input type="submit" value="Get">
+    </form>
+
+-->
+
+</body>
+
+<!-- 
+一個網址 對應一個網頁 (Restful api)
+
+=搜尋框=(網址的組成)
+https://tw.search.yahoo.com/search?fr=yfp-search-sb&p=sssss
+https://tw.search.yahoo.com/search?fr=yfp-search-sb&p=key
+通訊協定://網站的主機名稱/路徑?網址參數列表
+
+網址參數列表的格式:
+參數名稱=資料&參數名稱=資料&....
+
+
+架設網頁方法
+1.準備一台電腦
+2.安裝伺服器軟理
+    2-1.PHP 使用 Apache HTTP
+    2-2.Java 使用 Apache Tomcat
+    2-3.ASP.NET 使用IIS
+    2-4.JacaScript 使用 Node.js
+3.在特定的資料夾下開發網頁(ex C:\AppServ\www)
+4.使用測試網址 (測試主機名稱:https://localhost:8080/)測試網頁
+    4-1.檔案和網址的對應:
+        C:\AppServ\www\檔案名稱
+        http:\\localhost:8080\檔案名稱
+5.使用正式網址
+
+
+ctrl + shift + delete : 刪除歷史紀錄(瀏覽器)
+
+
+
+
+
+GET / POST
+
+
+-->
+</html>
